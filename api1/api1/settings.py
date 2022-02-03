@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'updates',
     'employee',
+    'flightDetails',
+    'creditmanagement',
     'rest_framework',
 ]
 

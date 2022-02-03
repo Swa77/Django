@@ -21,6 +21,8 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('employee.urls')),
+    path('',include('creditmanagement.urls')),
+    path('',include('flightDetails.urls')),
     path('',index,name='index'),
-    
+
 ]

@@ -7,4 +7,5 @@ class Employee(admin.ModelAdmin):
     form = Employeeform
     class Meta:
         model = Jobprofile
+    list_display=['name','company']
 admin.site.register(Jobprofile,Employee)
