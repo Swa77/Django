@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse #whenever we get request, we are expectng a response
-from .models import Jobprofile #because you want to do crud operations on this
-from .serializers import EmployeeSerializer
+from .models import Jobprofile, Project  # because you want to do crud operations on this
+from .serializers import EmployeeSerializer, create
 import json
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
+from rest_framework.response import Response
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.renderers import JSONRenderer
+from rest_framework.decorators import api_view
 # write api's here
 def index(request): #It is kike api, and we should give path in urls.py
     return render(request,'api1/index.html')
@@ -36,3 +40,9 @@ def employee_detail(request):
     serializer= EmployeeSerializer(emp)
     json_data= JSONRenderer().render(serializer.data)
     return HttpResponse(json_data, content_type='application/json')
+@api_view(['GET'])
+def details(request):
+    if request.method=="GET":
+        obj = Project.objects.all()
+        serializer = create(obj, many=True)
+        return Response(serializer.data)

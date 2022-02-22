@@ -6,5 +6,7 @@ from . import views
 urlpatterns=[
 path('employee/',views.index,name='index'),  # name is optional and with this ur api is called, and you should register this api in main urls.py
 path('jobs/',views.getdetails),
-path('serializer/',views.employee_detail)
+path('serializer/',views.employee_detail),
+path('details/',views.details)
+
 ]
